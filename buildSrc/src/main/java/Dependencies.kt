@@ -6,7 +6,5 @@ object Versions {
 }
 
 object AndroidX {
-    internal object Versions {
-
-    }
+    internal object Versions
 }
