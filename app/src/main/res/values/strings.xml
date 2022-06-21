@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ReloadZ</string>
+    <string name="add_load_data_cd">add load data</string>
+    <string name="load_data">Load Data</string>
+    <string name="rifles">Rifles</string>
+    <string name="calibers">Calibers</string>
+    <string name="load_data_cd">load data</string>
+    <string name="rifles_cd">rifles</string>
+    <string name="calibers_cd">calibers</string>
+    <string name="range_data">Range Data</string>
+    <string name="range_data_cd">range data</string>
+    <string name="search_cd">search</string>
+    <string name="settings_cd">settings</string>
+    <string name="add_range_data_cd">add range data</string>
 </resources>

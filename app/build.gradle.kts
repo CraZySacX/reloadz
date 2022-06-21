@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -35,11 +37,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.1"
+        kotlinCompilerExtensionVersion = AndroidX.Compose.compose_version
     }
     packagingOptions {
         resources {
@@ -49,16 +54,25 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.compose.ui:ui:1.1.1")
-    implementation("androidx.compose.material:material:1.1.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.1.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.24.4-alpha")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.1")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.1.1")
+    implementation(AndroidX.Activity.activity_compose)
+    implementation(AndroidX.Compose.Foundation.foundation)
+    implementation(AndroidX.Compose.Material.material)
+    implementation(AndroidX.Compose.Material.material_icons_extended)
+    implementation(AndroidX.Compose.Ui.ui)
+    implementation(AndroidX.Core.core_ktx)
+    implementation(AndroidX.Lifecycle.lifecycle_runtime_ktx)
+    implementation(AndroidX.Lifecycle.lifecycle_viewmodel_compose)
+    implementation(Google.Accompanist.accompanist_systemuicontroller)
+    implementation(Google.Dagger.hilt_android)
+    implementation("io.arrow-kt:arrow-core:1.0.1")
+
+    debugImplementation(AndroidX.Compose.Ui.ui_tooling)
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.2.0-alpha05")
+
+    kapt(Google.Dagger.hilt_android_compiler)
+
+    testImplementation(JUnit.junit4)
+    androidTestImplementation(AndroidX.Test.ext)
+    androidTestImplementation(AndroidX.Test.Espresso.espresso_core)
+    androidTestImplementation(AndroidX.Compose.Ui.ui_test_junit4)
 }
